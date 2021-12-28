@@ -23,7 +23,7 @@ To use the scripts of the "code.bat" batch, you must have dl and installed the D
   
   -if NO: they are compressed (JPEG format) and not compatible with ADAC-Pinnacle.
 
-- To ensure the compression, open for exemple ezDicom then pull in the window that opens an image which is contained in the IMAGES directory
+- To ensure the compression, open for exemple ezDicom (present in the suite folder or in https://sourceforge.net/projects/ezdicom/) then pull in the window that opens an image which is contained in the IMAGES directory
 
 - Show DICOM tags and watch (00002,0010) if the end is 1.2.1 then there is no compression, otherwise they are certainly compressed
 
