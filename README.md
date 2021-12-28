@@ -37,4 +37,6 @@ To use the scripts of the "code.bat" batch, you must have dl and installed the D
   
   -export these images in Pinnacle.
 
--To deselect the actions to be executed, add "rem" at the beginning of the line in the script
+- To deselect the actions to be executed, add "rem" at the beginning of the line in the script
+
+- LEFT_CLICK on the code.bat file to execute the previous elements
