@@ -1,9 +1,9 @@
 # DICOM-Transfer-Modify
 Dicom Tool using dcmdjpeg dcmmodify gdmconv storescu
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % To do only once%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 To use the scripts of the "code.bat" batch, you must have dl and installed the DCMTK suite
