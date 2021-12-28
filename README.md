@@ -6,8 +6,7 @@ Dicom Tool using dcmdjpeg dcmmodify gdmconv storescu
 
 
 
-To use the scripts of the "code.bat" batch, you must have dl and installed the DCMTK suite
-from the offis group (https://dicom.offis.de/dcmtk.php.en) and the GDCM suite.
+To use the scripts of the "code.bat" batch, you must have dl and installed the DCMTK suite from the offis group (https://dicom.offis.de/dcmtk.php.en) and the GDCM suite. It is necessary to add .exe files contained in PATH directory in PATH system variable according to https://www.java.com/en/download/help/path.html.
 
 
 
