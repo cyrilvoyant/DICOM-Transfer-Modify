@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DICOM-Transfer-Modify — Demo</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; color:#111; }
+    header { background:#0b5cff; color:white; padding:1rem; }
+    main { padding:1rem; max-width:900px; margin:0 auto; }
+    .box { padding:1rem; border:1px solid #eee; border-radius:8px; background:#fafafa; }
+    .links { margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn { background:#0b5cff; color:white; padding:.5rem .75rem; border-radius:6px; text-decoration:none; }
+    .warning { background:#fff4e5; border:1px solid #ffd89b; padding:.75rem; border-radius:6px; }
+    pre.proc { background:#f6f8fa; padding:1rem; border-radius:6px; overflow:auto; }
+    footer { padding:1rem; text-align:center; color:#666; font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header><h1>DICOM-Transfer-Modify — Quick Preview</h1></header>
+  <main>
+    <div class="box">
+      <p>This repository stores tools for transferring and modifying DICOM files. Use the links below to download the suite or view documentation files if present.</p>
+      <div class="links">
+        <a class="btn" href="Suite.zip" target="_blank" rel="noopener">Download Suite.zip</a>
+      </div>
+    </div>
+
+    <section style="margin-top:1rem;">
+      <h2>Requirements (do this only once)</h2>
+      <p>To use the scripts (for example the <code>code.bat</code> batch), you must install DCMTK from OFFIS (<a href="https://dicom.offis.de/dcmtk.php.en" target="_blank" rel="noopener">link</a>) and GDCM tools (<a href="http://gdcm.sourceforge.net/html/gdcmconv.html" target="_blank" rel="noopener">link</a>).</p>
+      <p>Also add the directories that contain the required <code>.exe</code> files to your system <code>PATH</code>. See: <a href="https://www.java.com/en/download/help/path.html" target="_blank" rel="noopener">https://www.java.com/en/download/help/path.html</a></p>
+    </section>
+
+    <section style="margin-top:1rem;">
+      <h2>Procedure (execute when necessary)</h2>
+      <pre class="proc">
+% To do only once%
+
+To use the scripts of the "code.bat" batch, you must have dl and installed the DCMTK suite from the offis group (https://dicom.offis.de/dcmtk.php.en) and the GDCM suite (http://gdcm.sourceforge.net/html/gdcmconv.html). It is necessary to add .exe files contained in PATH directory in PATH system variable according to https://www.java.com/en/download/help/path.html.
+
+% To do when necessary%
+
+    Only do this methodology if the usual dicom transfer software (e.g. CD2RTP for adac pinnacle) does not work
+
+    Place the images in the IMAGES directory
+
+    Check if they all have the same weight
+
+    -if YES: they are probably in "Little Endian" format compatible with ADAC-Pinnacle,
+
+    -if NO: they are compressed (JPEG format) and not compatible with ADAC-Pinnacle.
+
+    To ensure the compression, open for exemple ezDicom (present in the suite folder or in https://sourceforge.net/projects/ezdicom/) then pull in the window that opens an image which is contained in the IMAGES directory
+
+    Show DICOM tags and watch (00002,0010) if the end is 1.2.1 then there is no compression, otherwise they are certainly compressed
+
+    Open the batch code.bat by doing a RIGHT_CLICK / Modify, the code allows you to perform 4 actions:
+
+    -add a .dcm extension to the images contained in IMAGES,
+
+    -decompress these images (normal JPEG or JP2000),
+
+    -modify their DICOM characteristics,
+
+    -export these images in Pinnacle.
+
+    To deselect the actions to be executed, add "rem" at the beginning of the line in the script
+
+    LEFT_CLICK on the code.bat file to execute the previous elements
+      </pre>
+    </section>
+
+    <section style="margin-top:1rem;">
+      <h2>Safety note</h2>
+      <div class="warning">
+        <strong>Warning:</strong> Do not run executables or open datasets from this repository without verifying their origin and ensuring that any DICOM files are fully anonymized (no PHI). Prefer to rebuild binaries from source when possible, and provide SHA256 checksums.
+      </div>
+    </section>
+
+    <section style="margin-top:1rem;">
+      <h2>About</h2>
+      <p>Add here a short description of the project's purpose, intended users, and basic usage examples. If you paste 2–3 lines about the project goals I will integrate them into the README/docs.</p>
+    </section>
+  </main>
+  <footer><small>To publish: enable GitHub Pages (branch `main`, folder `/docs`).</small></footer>
+</body>
+</html>
