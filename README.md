@@ -1,42 +1,68 @@
 # DICOM-Transfer-Modify
-Dicom Tool using dcmdjpeg dcmmodify gdmconv storescu
 
+Project: DICOM-Transfer-Modify — tools and utilities for transferring and modifying DICOM data
 
-% To do only once%
+Summary
+This repository contains tools and resources related to transferring and modifying DICOM files. The archive `Suite.zip` includes the toolset; please verify contents and ensure no protected health information (PHI) is distributed.
 
+Top-level contents
+- `Suite.zip` — tool suite archive (check contents before running)
+- `LICENSE` — project license
+- `README.md` — this file
 
+Quick view / demo
+1. Recommended: enable GitHub Pages and serve the `docs/` folder to provide a simple demo page that embeds documentation and links the Suite archive.
+2. After adding `docs/index.html`, enable GitHub Pages (Settings → Pages → Source: Branch `main` / folder `/docs`) — demo will appear at `https://cyrilvoyant.github.io/DICOM-Transfer-Modify/`.
 
-To use the scripts of the "code.bat" batch, you must have dl and installed the DCMTK suite from the offis group (https://dicom.offis.de/dcmtk.php.en) and the GDCM suite (http://gdcm.sourceforge.net/html/gdcmconv.html). It is necessary to add .exe files contained in PATH directory in PATH system variable according to https://www.java.com/en/download/help/path.html.
+Requirements (do this only once)
+To use the scripts (for example the `code.bat` batch), you must download and install:
+- DCMTK from OFFIS: https://dicom.offis.de/dcmtk.php.en  
+- GDCM tools: http://gdcm.sourceforge.net/html/gdcmconv.html
 
+You also need to add the directories that contain the required `.exe` files to your system `PATH`. For details about updating PATH on Windows, see: https://www.java.com/en/download/help/path.html.
 
+Security / data privacy
+- Do not commit real patient DICOM files. Always anonymize DICOM data before adding sample files.
+- If distributing binaries, add SHA256 checksums and build/source instructions so users can verify the binary integrity.
+- Prefer providing source and build steps instead of distributing executables.
 
-% To do when necessary%
+How to use the suite (when necessary)
+Only follow this methodology if the usual DICOM transfer software (e.g. CD2RTP for ADAC Pinnacle) does not work.
 
+1. Place the images in the `IMAGES` directory.
 
--  Only do this methodology if the usual dicom transfer software (e.g. CD2RTP for adac pinnacle) does not work
+2. Check if they all have the same size:
+   - If YES: they are probably in "Little Endian" (compatible with ADAC-Pinnacle).
+   - If NO: they are compressed (JPEG or JP2000) and not directly compatible with ADAC-Pinnacle.
 
--  Place the images in the IMAGES directory
+3. To ensure compression type:
+   - Open ezDicom (included in the suite folder or available at https://sourceforge.net/projects/ezdicom/).
+   - Load one image from the `IMAGES` directory.
+   - Show DICOM tags and check tag (0002,0010). If it ends with `1.2.1` then there is no compression; otherwise the images are likely compressed.
 
--  Check if they all have the same weight
+4. Edit and read `code.bat`:
+   - RIGHT‑CLICK `code.bat` → Modify to inspect the batch script.
+   - The script supports four actions:
+     - add a `.dcm` extension to images in `IMAGES`,
+     - decompress images (normal JPEG or JP2000),
+     - modify DICOM attributes,
+     - export images for Pinnacle.
+   - To deselect an action, add `rem` at the beginning of the corresponding line in the script (Windows batch comment).
+   - LEFT‑CLICK `code.bat` (double‑click/execute) to run the chosen actions.
 
-  -if YES: they are probably in "Little Endian" format compatible with ADAC-Pinnacle,
-  
-  -if NO: they are compressed (JPEG format) and not compatible with ADAC-Pinnacle.
+Notes and safety
+- Always inspect files before execution, especially when running downloaded executables or batch scripts.
+- Consider creating checksums (SHA256) for distributed binaries and include instructions to verify them.
+- If you provide source code (e.g., `codesource.zip`), include build instructions so users can rebuild the binary themselves.
 
-- To ensure the compression, open for exemple ezDicom (present in the suite folder or in https://sourceforge.net/projects/ezdicom/) then pull in the window that opens an image which is contained in the IMAGES directory
+Planned improvements in this PR
+- Add `docs/index.html` demo page to preview documentation and link Suite.zip.
+- Add `CONTRIBUTING.md` with contribution guidelines and binary handling instructions.
+- Add a GitHub Actions workflow to lint Markdown/HTML.
+- Add a minimal `.gitignore`.
 
-- Show DICOM tags and watch (00002,0010) if the end is 1.2.1 then there is no compression, otherwise they are certainly compressed
+Contributing
+Open an issue for any proposed change or bug. See CONTRIBUTING.md (to be added) for contribution steps.
 
-- Open the batch code.bat by doing a RIGHT_CLICK / Modify, the code allows you to perform 4 actions:
-
-  -add a .dcm extension to the images contained in IMAGES,
-  
-  -decompress these images (normal JPEG or JP2000),
-  
-  -modify their DICOM characteristics,
-  
-  -export these images in Pinnacle.
-
-- To deselect the actions to be executed, add "rem" at the beginning of the line in the script
-
-- LEFT_CLICK on the code.bat file to execute the previous elements
+License
+See LICENSE in the repository.
