@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "SoftwareSourceCode",
+  "name": "DICOM-Transfer-Modify",
+  "description": "Utilities to detect DICOM Transfer Syntax, decompress JPEG/JPEG2000, normalize to Explicit VR Little Endian, edit/anonymize tags, and send via PACS. Workflow built around DCMTK and GDCM for deterministic TPS ingestion (e.g., Pinnacle/ADAC).",
+  "url": "https://github.com/cyrilvoyant/DICOM-Transfer-Modify",
+  "codeRepository": "https://github.com/cyrilvoyant/DICOM-Transfer-Modify",
+  "programmingLanguage": ["Batchfile", "Shell"],
+  "operatingSystem": ["Windows"],
+  "softwareRequirements": [
+    "DCMTK (dcmdump, dcmdjpeg, dcmj2k, dcmodify, storescu)",
+    "GDCM (gdcmconv)"
+  ],
+  "keywords": [
+    "DICOM",
+    "Transfer Syntax UID",
+    "Explicit VR Little Endian",
+    "JPEG Baseline",
+    "JPEG2000",
+    "DCMTK",
+    "GDCM",
+    "PACS",
+    "anonymization",
+    "radiotherapy TPS import",
+    "Pinnacle",
+    "ADAC"
+  ],
+  "license": "GPL-3.0",
+  "author": {
+    "@type": "Person",
+    "name": "Cyril Voyant",
+    "url": "https://cyrilvoyant.com",
+    "identifier": "https://orcid.org/0000-0003-0242-7377"
+  },
+  "isBasedOn": [
+    "https://dicom.offis.de/dcmtk.php.en",
+    "http://gdcm.sourceforge.net/html/gdcmconv.html"
+  ],
+  "version": "1.0.0",
+  "datePublished": "2025-11-08"
+}
